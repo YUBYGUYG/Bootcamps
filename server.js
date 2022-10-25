@@ -2,8 +2,12 @@ const express=require('express')
 const dontenv=require('dotenv')
 const colors=require('colors')
 
+//dependencia a la conexión a bd
+const connectDB=require('./config/db')
+
 //dependencias a las rutas
 const bootcampRoutes=require('./routes/BootcamRoutes')
+const userRoutes=require('./routes/UserRoutes')
 
 //ESTABLECER ARCHIVO DE CONFIGURACIÓN con variables de entorno del proyecto
 dontenv.config({
@@ -13,7 +17,12 @@ dontenv.config({
 //1. Cear el objeto app
 const app=express()
 
+//ejecutar la conexión a bd
+connectDB()
+
+
 app.use('/api/v1/bootcamps', bootcampRoutes)
+app.use('/api/v1/users', userRoutes)
 //crear rutas(endoint, uri) para los bootcamps
 
 
