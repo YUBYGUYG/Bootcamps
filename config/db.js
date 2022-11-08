@@ -12,7 +12,7 @@ const User=UserModel(sequelize, DataTypes)
 const connectDB=async()=>{
     try {
         await sequelize.authenticate()
-        console.log('connection sucessfully'.bgMagenta.blue)
+        console.log('connection successfully'.bgMagenta.blue)
         //seleccionar los users:
         // const users=await User.findAll();
         // console.log(users)

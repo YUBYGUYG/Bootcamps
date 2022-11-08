@@ -8,6 +8,7 @@ const connectDB=require('./config/db')
 //dependencias a las rutas
 const bootcampRoutes=require('./routes/BootcamRoutes')
 const userRoutes=require('./routes/UserRoutes')
+const { json } = require('sequelize')
 
 //ESTABLECER ARCHIVO DE CONFIGURACIÓN con variables de entorno del proyecto
 dontenv.config({
@@ -16,6 +17,7 @@ dontenv.config({
 
 //1. Cear el objeto app
 const app=express()
+app.use(express.json())
 
 //ejecutar la conexión a bd
 connectDB()
